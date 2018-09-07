@@ -23,11 +23,15 @@
     </repositories>
 
     <dependencies>
+        <!--Begin HanLP-->
         <dependency>
             <groupId>com.hankcs</groupId>
             <artifactId>hanlp</artifactId>
             <version>portable-1.6.7</version>
         </dependency>
+        <!--End HanLP-->
+
+        <!--Begin FudanNLP-->
         <dependency>
             <groupId>org.fnlp</groupId>
             <artifactId>fnlp-core</artifactId>
@@ -38,6 +42,14 @@
             <artifactId>trove4j</artifactId>
             <version>3.0.3</version>
         </dependency>
+        <!--End FudanNLP-->
+        <!--Begin StanfordNLP-->
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>3.9.1</version>
+        </dependency>
+        <!--End StanfordNLP-->
     </dependencies>
 
     <build>
@@ -55,6 +67,16 @@
                 </includes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 

@@ -155,7 +155,7 @@ public class NLPFrame extends JFrame {
             chooser.setFileFilter(new FileNameExtensionFilter("文本文件（.txt）", "txt"));
             if(chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
                 try {
-                    textAreaInput.setText(Files.readString(chooser.getSelectedFile().toPath()));
+                    textAreaInput.setText(new String(Files.readAllBytes(chooser.getSelectedFile().toPath())));
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

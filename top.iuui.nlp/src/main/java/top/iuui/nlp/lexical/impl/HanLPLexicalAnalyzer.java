@@ -4,7 +4,6 @@ import com.hankcs.hanlp.model.crf.CRFLexicalAnalyzer;
 import top.iuui.nlp.lexical.LexicalAnalyzer;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,14 +24,6 @@ public class HanLPLexicalAnalyzer implements LexicalAnalyzer {
         }
     }
 
-    private static HanLPLexicalAnalyzer hanLPLexicalAnalyzer;
-    public static HanLPLexicalAnalyzer getInstance(){
-        if (hanLPLexicalAnalyzer == null){
-            hanLPLexicalAnalyzer = new HanLPLexicalAnalyzer();
-        }
-        return hanLPLexicalAnalyzer;
-    }
-
     @Override
     public String segment(String text) {
         if (analyzer == null) {
@@ -43,8 +34,12 @@ public class HanLPLexicalAnalyzer implements LexicalAnalyzer {
                 .collect(joining(" "));
     }
 
-    public static void main(String[] args) throws Exception{
-        System.out.println(HanLPLexicalAnalyzer.getInstance().segment("abc des舌底澜翻"));
-        System.out.println(new CRFLexicalAnalyzer().seg("打发阿斯顿发"));
+    private static HanLPLexicalAnalyzer hanLPLexicalAnalyzer;
+
+    public static HanLPLexicalAnalyzer getInstance(){
+        if (hanLPLexicalAnalyzer == null){
+            hanLPLexicalAnalyzer = new HanLPLexicalAnalyzer();
+        }
+        return hanLPLexicalAnalyzer;
     }
 }
